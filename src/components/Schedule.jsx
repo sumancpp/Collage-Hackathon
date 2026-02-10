@@ -13,9 +13,11 @@ export default function Schedule() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold mb-6 text-center"
+        className="text-3xl md:text-4xl font-bold mb-6 text-center
+        bg-clip-text text-transparent
+        bg-linear-to-b from-white via-neutral-200 to-neutral-600"
       >
-        Event <span className="text-primary">Schedule</span>
+        Event <span className="text-primary text-green-500">Schedule</span>
       </motion.h2>
 
       {/* Description */}
@@ -39,21 +41,47 @@ export default function Schedule() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="max-w-5xl mx-auto mb-16 bg-black rounded-2xl p-6"
+        className="
+    relative max-w-5xl mx-auto mb-16 p-8 rounded-2xl
+    bg-black/80 backdrop-blur
+    border border-white/10
+  "
       >
-        <h3 className="text-xl font-semibold mb-4 text-white">
-          Hackathon Problem Domains
-        </h3>
+        {/* Glow Border */}
+        <div className="absolute -inset-0.5 rounded-2xl opacity-20 blur pointer-events-none" />
 
-        <ul className="grid md:grid-cols-2 gap-3 text-gray-300">
-          <li>• Artificial Intelligence & Machine Learning</li>
-          <li>• Web & Mobile Application Development</li>
-          <li>• Cyber Security & Data Privacy</li>
-          <li>• Smart Campus & IoT Solutions</li>
-          <li>• Sustainable Technology & Green Energy</li>
-          <li>• Open Innovation (Any Domain)</li>
-        </ul>
+        {/* Content */}
+        <div className="relative z-10">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center
+          bg-clip-text text-transparent
+        bg-linear-to-b from-white via-neutral-100 to-neutral-600">
+            Hackathon Problem Domains
+          </h3>
+
+          <ul className="grid md:grid-cols-2 gap-4 text-gray-200">
+            {[
+              "AI-Driven Innovations in Agriculture",
+              "Smart Healthcare Using AI, Machine Learning & IoT",
+              "AI for Social Media Analytics & Insights",
+              "Advanced Networking & Cybersecurity",
+              "Web 3.0: Decentralized Technologies & Blockchain",
+              "Intelligent Safety Systems Using AI, Machine Learning & IoT",
+              "Open Innovation",
+            ].map((item, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 p-3 rounded-xl
+                     bg-white/5 hover:bg-white/10
+                     transition hover:scale-110"
+              >
+                <span className="mt-1 h-2 w-2 rounded-full bg-green-400 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </motion.div>
+
 
       {/* Day-wise Events */}
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -63,11 +91,26 @@ export default function Schedule() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="p-6 bg-black rounded-2xl"
+          className="p-6 bg-black rounded-2xl hover:scale-105"
         >
-          <h3 className="text-xl font-semibold mb-4 text-primary">
-            Day 1 – 17 March
+          <h3 className="mb-4 flex items-center gap-3 text-xl font-semibold text-center">
+            <span className="text-white">Day 1</span>
+
+            <span
+              className="
+      px-4 py-1.5 rounded-full
+      border border-primary/40
+      bg-primary/10
+      text-primary
+      text-sm font-semibold
+      shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
+    "
+            >
+              17 March
+            </span>
           </h3>
+
+
 
           <p className="text-gray-300 mb-3">
             On the first day, participants can take part in the following
@@ -87,10 +130,23 @@ export default function Schedule() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="p-6 bg-black rounded-2xl"
+          className="p-6 bg-black rounded-2xl hover:scale-105"
         >
-          <h3 className="text-xl font-semibold mb-4 text-primary">
-            Day 2 – 18 March
+          <h3 className="mb-4 flex items-center gap-3 text-xl font-semibold text-center">
+            <span className="text-white">Day 2</span>
+
+            <span
+              className="
+      px-4 py-1.5 rounded-full
+      border border-primary/40
+      bg-primary/10
+      text-primary
+      text-sm font-semibold
+      shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
+    "
+            >
+              18 March
+            </span>
           </h3>
 
           <p className="text-gray-300 mb-3">
@@ -113,7 +169,7 @@ export default function Schedule() {
         transition={{ delay: 0.3, duration: 0.5 }}
         className="mt-14 text-center"
       >
-        <span className="inline-block px-6 py-3 rounded-full bg-primary/20 border border-primary text-primary font-semibold">
+        <span className="inline-block px-6 py-3 rounded-full bg-primary/20 border border-primary text-primary font-semibold border-green-100">
           Special Offer: Participate in all events for just ₹80
         </span>
       </motion.div>

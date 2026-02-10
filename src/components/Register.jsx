@@ -17,9 +17,11 @@ export default function Register() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold mb-4"
+        className="text-3xl md:text-4xl font-bold mb-4
+        bg-clip-text text-transparent
+        bg-linear-to-b from-white via-neutral-100 to-neutral-600"
       >
-        Register <span className="text-primary">Now</span>
+        Register <span className="text-primary text-green-500">Now</span>
       </motion.h2>
 
       {/* Info */}
@@ -45,12 +47,12 @@ export default function Register() {
       >
         {/* Registration Link */}
         <a
-          href="https://register-hackathon.vercel.app"
+          href="https://docs.google.com/forms/d/1kUjIB1PPkjuT_MtGf7YC23kIUJunyH7wRfMElaGqA6g/edit"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-primary px-8 py-3 rounded-lg font-semibold hover:scale-105 transition underline"
         >
-          <FaRegClipboard className="text-lg" />
+          <FaRegClipboard className="text-xl" />
           <span>Registration Form</span>
         </a>
 
@@ -74,10 +76,10 @@ export default function Register() {
         {/* Documents */}
         <div className="mt-10 grid md:grid-cols-2 gap-6 w-full max-w-xl">
           <a
-            href="https://example.com/omtech-ppt-format"
+            href="https://docs.google.com/presentation/d/1WUrxc7UFRzZuXBfdunVB8I--QTp1y-ln/export/pptx"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-black border border-gray-700 px-6 py-4 rounded-xl hover:border-primary transition"
+            className="block bg-black border border-gray-700 px-6 py-4 rounded-xl hover:border-primary transition hover:scale-105"
           >
             <h4 className="font-semibold mb-1 underline">PPT Format</h4>
             <p className="text-sm text-gray-400">
@@ -86,10 +88,10 @@ export default function Register() {
           </a>
 
           <a
-            href="https://example.com/omtech-noc-form"
+            href="https://docs.google.com/document/d/1uoLms76n-GlOUhhJsdIo1077MebXzmBB/export?format=docx"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-black border border-gray-700 px-6 py-4 rounded-xl hover:border-primary transition"
+            className="block bg-black border border-gray-700 px-6 py-4 rounded-xl hover:border-primary transition hover:scale-105"
           >
             <h4 className="font-semibold mb-1 underline">NOC Form</h4>
             <p className="text-sm text-gray-400">

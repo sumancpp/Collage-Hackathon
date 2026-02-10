@@ -1,5 +1,8 @@
+"use client"
+
 import React from "react"
 import { motion } from "framer-motion"
+import { WobbleCard } from "../components/ui/wobble-card"
 
 export default function About() {
   return (
@@ -13,9 +16,11 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold mb-10 text-center"
+        className="text-3xl md:text-4xl font-bold mb-10 text-center
+        bg-clip-text text-transparent
+        bg-linear-to-b from-white via-neutral-200 to-neutral-600"
       >
-        About <span className="text-primary">OMTECH Hackathon</span>
+        About <span className="text-green-500">OMTECH</span>
       </motion.h2>
 
       {/* Content */}
@@ -24,10 +29,10 @@ export default function About() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="grid md:grid-cols-2 gap-12 text-gray-300"
+        className="grid md:grid-cols-2 gap-12 items-stretch"
       >
         {/* Left Content */}
-        <div className="leading-relaxed space-y-5">
+        <div className="leading-relaxed space-y-5 text-gray-300">
           <p>
             <strong className="text-white">OMTECH Hackathon</strong> is a flagship
             technical initiative organized by{" "}
@@ -43,37 +48,42 @@ export default function About() {
           </p>
 
           <p>
-            The event will be conducted inside the <strong>college campus</strong>
-            and is open to students with a passion for technology and innovation.
+            The event will be conducted inside the{" "}
+            <strong>college campus</strong> and is open to students with a passion
+            for technology and innovation.
           </p>
         </div>
 
-        {/* Rules & Registration */}
-        <div className="bg-gray-900 rounded-2xl p-6 space-y-4">
-          <h3 className="text-xl font-semibold text-white mb-3">
-            Team & Registration Guidelines
-          </h3>
+        {/* 🔥 Wobble Card */}
+        <WobbleCard
+          containerClassName="bg-gray-900 rounded-2xl p-6 h-full"
+        >
+          <div className="space-y-4 max-w-sm">
+            <h3 className="text-xl font-semibold text-white">
+              Team & Registration Guidelines
+            </h3>
 
-          <ul className="space-y-3">
-            <li>👥 Each team must consist of <strong>3 to 5 members</strong>.</li>
+            <ul className="space-y-3 text-gray-300 text-x leading-relaxed">
+              <li>👥 Each team must consist of <strong>3 to 5 members</strong>.</li>
 
-            <li>
-              🧑‍💼 Every team must have a <strong>Team Leader</strong>, who will
-              be responsible for registration and communication.
-            </li>
+              <li>
+                🧑‍💼 Every team must have a{" "}
+                <strong>Team Leader</strong>.
+              </li>
 
-            <li>
-              📝 Only the <strong>Team Leader</strong> is required to complete
-              the registration process on behalf of the team.
-            </li>
+              <li>
+                📝 Only the <strong>Team Leader</strong> needs to complete
+                registration.
+              </li>
 
-            <li>
-              💰 The <strong>team registration fee</strong> for the hackathon is{" "}
-              <strong>₹300 per team</strong>.
-            </li>
+              <li>
+                💰 Registration fee:{" "}
+                <strong className="text-white">₹300 per team</strong>.
+              </li>
+            </ul>
+          </div>
+        </WobbleCard>
 
-          </ul>
-        </div>
       </motion.div>
     </section>
   )

@@ -41,7 +41,7 @@ export default function Footer() {
             },
             {
               icon: <FaLinkedinIn />,
-              link: "https://linkedin.com/company/omdayal",
+              link: "https://www.linkedin.com/company/omdayal/posts/?feedView=all",
               color: "hover:text-blue-400",
             },
             {
@@ -59,7 +59,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
               whileHover={{ scale: 1.2 }}
-              className={`text-gray-400 transition text-lg ${item.color}`}
+              className={`text-gray-400 transition text-lg hover:scale-150 ${item.color}`}
             >
               {item.icon}
             </motion.a>

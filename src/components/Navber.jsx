@@ -1,66 +1,146 @@
-import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useRef, useState } from "react"
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 import { IoMdMenu } from "react-icons/io"
-import { HiX } from "react-icons/hi"
+import { IoClose } from "react-icons/io5"
 import logo from "../assets/logo.png"
+import CustomButtonOne from "./CustomButtonOne"
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const ref = useRef(null)
+  const { scrollY } = useScroll({ target: ref })
+  const [visible, setVisible] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setVisible(latest > 100)
+  })
+
+  const navItems = [
+    { name: "About", link: "#about" },
+    { name: "Prizes", link: "#prizes" },
+    { name: "Schedule", link: "#schedule" },
+    { name: "Contact", link: "#contact" },
+  ]
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
+    <motion.div
+      ref={ref}
+      initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 w-full bg-black/70 backdrop-blur z-50 px-6 py-4 flex justify-between items-center"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed inset-x-0 top-0 z-50 mx-auto max-w-6xl px-4"
     >
-      {/* Logo */}
-      <img
-        src={logo}
-        alt="Omdyal Hackathon Logo"
-        className="h-10 object-contain rounded-full"
-      />
-
-      {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-8 text-sm">
-        <a href="#home" className="hover:text-primary transition hover:underline">Home</a>
-        <a href="#about" className="hover:text-primary transition hover:underline">About</a>
-        <a href="#register" className="hover:text-primary transition font-bold hover:scale-105">Registration</a>
-        <a href="#contact" className="hover:text-primary transition hover:underline">Contact</a>
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setMenuOpen(true)}
-        className="md:hidden text-3xl mr-3"
+      {/* ================= Desktop Navbar ================= */}
+      <motion.div
+        animate={{
+          backdropFilter: visible ? "blur(10px)" : "none",
+          boxShadow: visible
+            ? "0 10px 40px rgba(0,0,0,0.25)"
+            : "none",
+          y: visible ? 10 : 0,
+          width: visible ? "85%" : "100%",
+        }}
+        transition={{ type: "spring", stiffness: 200, damping: 30 }}
+        className="mx-auto hidden items-center justify-between rounded-full px-6 py-3 lg:flex bg-black"
       >
-        <IoMdMenu />
-      </button>
+        {/* Logo */}
+        <a
+          href="#hero"
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <img
+            src={logo}
+            alt="OmTech Logo"
+            className="h-10 w-10 rounded-full"
+          />
+          <span className="font-semibold text-white">OmTech</span>
+        </a>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 h-screen w-64 bg-black z-50 p-6 flex flex-col gap-6"
-          >
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="self-end text-2xl"
+
+        {/* Links */}
+        <div className="flex gap-6 text-sm">
+          {navItems.map((item, i) => (
+            <a
+              key={i}
+              href={item.link}
+              className="text-gray-300 hover:text-primary transition cursor-pointer hover:underline"
             >
-              <HiX />
-            </button>
+              {item.name}
+            </a>
+          ))}
+        </div>
 
-            <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a className='font-bold underline' href="#register" onClick={() => setMenuOpen(false)}>Registration</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+        {/* Registration Button */}
+        <CustomButtonOne text="Register Now" />
+      </motion.div>
+
+      {/* ================= Mobile Navbar ================= */}
+      <div className="lg:hidden">
+        <motion.div
+          animate={{
+            backdropFilter: visible ? "blur(10px)" : "none",
+            boxShadow: visible ? "0 10px 40px rgba(0,0,0,0.25)" : "none",
+          }}
+          className="flex items-center justify-between rounded-xl bg-black/80 px-4 py-3"
+        >
+          {/* Logo */}
+          <a
+            href="#hero"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <img
+              src={logo}
+              alt="OmTech Logo"
+              className="h-9 w-9 rounded-full"
+            />
+            <span className="font-semibold text-white">OmTech</span>
+          </a>
+
+
+          {/* Menu Toggle */}
+          {open ? (
+            <IoClose
+              className="text-2xl cursor-pointer"
+              onClick={() => setOpen(false)}
+            />
+          ) : (
+            <IoMdMenu
+              className="text-2xl cursor-pointer mr-1"
+              onClick={() => setOpen(true)}
+            />
+          )}
+        </motion.div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="mt-2 rounded-xl bg-black px-6 py-6 space-y-5"
+            >
+              {navItems.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.link}
+                  onClick={() => setOpen(false)}
+                  className="block text-gray-300 hover:text-primary transition"
+                >
+                  {item.name}
+                </a>
+              ))}
+
+              {/* Registration Button (mobile style consistent) */}
+              <div onClick={() => setOpen(false)}>
+                <CustomButtonOne text="Register Now" />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
   )
 }

@@ -3,3 +3,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+[data-focus-card] img {
+  display: none;
+}
+
+.focus-card img {
+  display: none;
+}
