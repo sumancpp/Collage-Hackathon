@@ -41,7 +41,7 @@ export default function Footer() {
             },
             {
               icon: <FaLinkedinIn />,
-              link: "https://www.linkedin.com/company/omdayal/posts/?feedView=all",
+              link: "https://www.linkedin.com/in/suman-maity-b84879292/",
               color: "hover:text-blue-400",
             },
             {

@@ -119,8 +119,7 @@ export default function Schedule() {
 
           <ul className="text-gray-300 space-y-2">
             <li>• Coding Competition – Entry Fee: ₹30</li>
-            <li>• Debugging Challenge – Entry Fee: ₹30</li>
-            <li>• Technical Quiz – Entry Fee: ₹20</li>
+            <li>• Quiz – Entry Fee: ₹20</li>
           </ul>
         </motion.div>
 
@@ -155,7 +154,7 @@ export default function Schedule() {
           </p>
 
           <ul className="text-gray-300 space-y-2">
-            <li>• Technical Puzzle Solving – Entry Fee: ₹30</li>
+            <li>• Puzzle Solving – Entry Fee: ₹30</li>
             <li>• E-Football Tournament – Entry Fee: ₹20</li>
           </ul>
         </motion.div>

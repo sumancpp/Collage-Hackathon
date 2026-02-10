@@ -126,9 +126,9 @@ export default function Prizes() {
       >
         <p className="text-gray-400">
           In addition to the main hackathon prizes,{" "}
-          <strong className="text-white">trophies and certificates</strong> will be
+          <strong className="text-white">exciting prizes</strong> will be
           awarded for Coding, Debugging, Technical Quiz, Puzzle Solving, and{" "}
-          <strong>E-Football</strong>.
+          <strong>E-Football</strong>
         </p>
       </motion.div>
 
