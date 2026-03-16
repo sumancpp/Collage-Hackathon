@@ -133,6 +133,7 @@ export default function Navbar() {
                 </a>
               ))}
 
+              
               {/* Registration Button (mobile style consistent) */}
               <div onClick={() => setOpen(false)}>
                 <CustomButtonOne text="Register Now" />
