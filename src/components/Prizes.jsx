@@ -1,14 +1,16 @@
 "use client"
 
-import React from "react"
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card"
 import { EncryptedText } from "../components/ui/encrypted-text"
 
 
 export default function Prizes() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   return (
-    <section id="prizes" className="py-24 px-8 bg-black">
+    <section ref={ref} id="prizes" className="py-24 px-8 bg-black">
 
       {/* Heading */}
       <motion.h2
@@ -52,12 +54,14 @@ export default function Prizes() {
             </CardItem>
 
             <CardItem translateZ="160" className="text-yellow-400 text-2xl font-bold">
-              ₹<EncryptedText
-                text="15000"
-                encryptedClassName="text-yellow-400/40"
-                revealedClassName="text-yellow-400"
-                revealDelayMs={40}
-              />
+              ₹{isInView && (
+                <EncryptedText
+                  text="15000"
+                  encryptedClassName="text-yellow-400/40"
+                  revealedClassName="text-yellow-400"
+                  revealDelayMs={40}
+                />
+              )}
             </CardItem>
 
 
@@ -78,12 +82,14 @@ export default function Prizes() {
             </CardItem>
 
             <CardItem translateZ="160" className="text-gray-200 text-2xl font-bold">
-              ₹<EncryptedText
-                text="10000"
-                encryptedClassName="text-gray-400/40"
-                revealedClassName="text-gray-200"
-                revealDelayMs={40}
-              />
+              ₹{isInView && (
+                <EncryptedText
+                  text="10000"
+                  encryptedClassName="text-gray-400/40"
+                  revealedClassName="text-gray-200"
+                  revealDelayMs={40}
+                />
+              )}
             </CardItem>
 
           </CardBody>
@@ -103,12 +109,14 @@ export default function Prizes() {
             </CardItem>
 
             <CardItem translateZ="160" className="text-orange-400 text-2xl font-bold">
-              ₹<EncryptedText
-                text="5000"
-                encryptedClassName="text-orange-400/40"
-                revealedClassName="text-orange-400"
-                revealDelayMs={40}
-              />
+              ₹{isInView && (
+                <EncryptedText
+                  text="5000"
+                  encryptedClassName="text-orange-400/40"
+                  revealedClassName="text-orange-400"
+                  revealDelayMs={40}
+                />
+              )}
             </CardItem>
 
           </CardBody>
@@ -117,6 +125,7 @@ export default function Prizes() {
       </div>
 
       {/* Extra Notes */}
+      {/* Extra Notes */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -124,12 +133,31 @@ export default function Prizes() {
         transition={{ delay: 0.4, duration: 0.6 }}
         className="mt-16 text-center max-w-3xl mx-auto"
       >
-        <p className="text-gray-400">
+        <p className="text-gray-400 mb-6">
           In addition to the main hackathon prizes,{" "}
-          <strong className="text-white">exciting prizes</strong> will be
-          awarded for Coding, Debugging, Technical Quiz, Puzzle Solving, and{" "}
-          <strong>E-Football</strong>
+          <strong className="text-white">exciting rewards</strong> will be given in
+          the following categories:
         </p>
+
+        <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
+
+          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            💻 Coding Contest
+          </span>
+
+          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            🧠 Technical Quiz
+          </span>
+
+          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            🧩 Technical Puzzle
+          </span>
+
+          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            ⚽ E-Football Tournament
+          </span>
+
+        </div>
       </motion.div>
 
     </section>

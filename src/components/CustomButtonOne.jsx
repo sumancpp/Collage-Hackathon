@@ -13,7 +13,7 @@ export default function CustomButtonOne({ text = "Register Now" }) {
             active:scale-95
             flex items-center gap-2
             cursor-pointer w-full
-            hover:scale-105
+            hover:scale-120
           "
         >
           <p className="text-white text-sm font-bold tracking-tight">

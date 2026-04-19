@@ -36,7 +36,7 @@ export default function Footer() {
             },
             {
               icon: <FaInstagram />,
-              link: "https://instagram.com/omdayal",
+              link: "https://www.instagram.com/omdayalgroupofinstitutions/",
               color: "hover:text-pink-500",
             },
             {

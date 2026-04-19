@@ -28,11 +28,24 @@ export default function Schedule() {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="max-w-4xl mx-auto text-center text-gray-300 mb-14 leading-relaxed"
       >
-        The OMTECH Hackathon will be conducted over <strong>two consecutive days</strong>,
-        providing participants with an immersive experience in innovation,
-        problem-solving, and technical excellence. Alongside the hackathon,
-        several on-spot registration events will be organized to encourage
-        wider participation.
+        The <strong>OMTECH Hackathon</strong> will be conducted over{" "}
+        <strong>two consecutive days</strong>, providing participants with an
+        immersive experience in innovation, problem-solving, and technical
+        excellence. Alongside the hackathon, several{" "}
+        <strong>on-spot registration events</strong> will be organized to
+        encourage wider participation.
+        <br /><br />
+
+        📅 <strong className="font-extrabold">Online Screening Round:</strong>{" "}
+        <span className="text-green-400 font-extrabold">
+          7th & 8th May, 2026
+        </span>
+        <br />
+
+        🏆 <strong className="font-extrabold">Result Announcement:</strong>{" "}
+        <span className="text-yellow-400 font-extrabold">
+          14th May, 2026
+        </span>
       </motion.p>
 
       {/* Hackathon Topics */}
@@ -53,12 +66,19 @@ export default function Schedule() {
         {/* Content */}
         <div className="relative z-10">
           <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center
-          bg-clip-text text-transparent
-        bg-linear-to-b from-white via-neutral-100 to-neutral-600">
+      bg-clip-text text-transparent
+      bg-linear-to-b from-white via-neutral-100 to-neutral-600">
             Hackathon Problem Domains
           </h3>
+          {/* 🔥 Highlighted Final Round Date */}
+          <div className="mt-10 text-center">
+            <p className="text-gray-400 mb-2">Final Round (Offline)</p>
+            <p className="text-xl md:text-2xl font-semibold text-green-400">
+              📅 22nd & 23rd May, 2026
+            </p>
+          </div>
 
-          <ul className="grid md:grid-cols-2 gap-4 text-gray-200">
+          <ul className="grid md:grid-cols-2 gap-4 text-gray-200 mt-10">
             {[
               "AI-Driven Innovations in Agriculture",
               "Smart Healthcare Using AI, Machine Learning & IoT",
@@ -71,14 +91,16 @@ export default function Schedule() {
               <li
                 key={idx}
                 className="flex items-start gap-3 p-3 rounded-xl
-                     bg-white/5 hover:bg-white/10
-                     transition hover:scale-110"
+          bg-white/5 hover:bg-white/10
+          transition hover:scale-110"
               >
                 <span className="mt-1 h-2 w-2 rounded-full bg-green-400 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
+
+
         </div>
       </motion.div>
 
@@ -98,28 +120,26 @@ export default function Schedule() {
 
             <span
               className="
-      px-4 py-1.5 rounded-full
-      border border-primary/40
-      bg-primary/10
-      text-primary
-      text-sm font-semibold
-      shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
-    "
+        px-4 py-1.5 rounded-full
+        border border-primary/40
+        bg-primary/10
+        text-primary
+        text-sm font-semibold
+        shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
+      "
             >
-              17 March
+              22 May
             </span>
           </h3>
 
-
-
           <p className="text-gray-300 mb-3">
-            On the first day, participants can take part in the following
-            technical events through <strong>on-spot registration</strong>:
+            On the first day, participants can take part in the following technical
+            events through <strong>on-spot registration (cash only)</strong>:
           </p>
 
-          <ul className="text-gray-300 space-y-2">
-            <li>• Coding Competition – Entry Fee: ₹30</li>
-            <li>• Quiz – Entry Fee: ₹20</li>
+          <ul className="text-gray-300 space-y-2 font-bold">
+            <li>💻 Coding Competition – Entry Fee: ₹30</li>
+            <li>🧠 Technical Quiz – Entry Fee: ₹20</li>
           </ul>
         </motion.div>
 
@@ -136,26 +156,26 @@ export default function Schedule() {
 
             <span
               className="
-      px-4 py-1.5 rounded-full
-      border border-primary/40
-      bg-primary/10
-      text-primary
-      text-sm font-semibold
-      shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
-    "
+        px-4 py-1.5 rounded-full
+        border border-primary/40
+        bg-primary/10
+        text-primary
+        text-sm font-semibold
+        shadow-[0_0_18px_-8px_rgba(34,197,94,0.7)]
+      "
             >
-              18 March
+              23 May
             </span>
           </h3>
 
           <p className="text-gray-300 mb-3">
-            The second day will focus on analytical thinking and competitive
-            gaming events:
+            The second day will focus on analytical thinking and competitive gaming
+            events through <strong>on-spot registration (cash only)</strong>:
           </p>
 
-          <ul className="text-gray-300 space-y-2">
-            <li>• Puzzle Solving – Entry Fee: ₹30</li>
-            <li>• E-Football Tournament – Entry Fee: ₹20</li>
+          <ul className="text-gray-300 space-y-2 font-bold">
+            <li>🧩 Technical Puzzle Solving – Entry Fee: ₹30</li>
+            <li>⚽ E-Football Tournament – Entry Fee: ₹20</li>
           </ul>
         </motion.div>
       </div>
@@ -168,9 +188,39 @@ export default function Schedule() {
         transition={{ delay: 0.3, duration: 0.5 }}
         className="mt-14 text-center"
       >
-        <span className="inline-block px-6 py-3 rounded-full bg-primary/20 border border-primary text-primary font-semibold border-green-100">
-          Special Offer: Participate in all events for just ₹80
-        </span>
+        {/* Glow Background */}
+        <div className="relative inline-block">
+
+          {/* Outer Glow */}
+          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 opacity-30 blur-xl"></div>
+
+          {/* Main Badge */}
+          <span
+            className="
+        relative inline-block px-6 py-3 rounded-full
+        bg-black/70 backdrop-blur
+        border border-green-400/40
+        text-green-400 font-semibold
+        shadow-[0_0_25px_rgba(34,197,94,0.6)]
+        hover:shadow-[0_0_40px_rgba(34,197,94,0.9)]
+        transition duration-300
+      "
+          >
+            🎉 Special Offer: Participate in all events for just{" "}
+            <motion.span
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="text-white font-bold inline-block"
+            >
+              ₹80
+            </motion.span>
+          </span>
+
+        </div>
       </motion.div>
     </section>
   )

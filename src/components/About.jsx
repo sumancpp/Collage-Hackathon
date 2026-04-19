@@ -34,23 +34,35 @@ export default function About() {
         {/* Left Content */}
         <div className="leading-relaxed space-y-5 text-gray-300">
           <p>
-            <strong className="text-white">OMTECH Hackathon</strong> is a flagship
-            technical initiative organized by{" "}
-            <strong>Omdayal Group of Institutions</strong>, aimed at fostering
-            innovation, collaboration, and real-world problem-solving skills
-            among students.
+            <strong className="text-white">OMTECH 2026</strong> is a two-day technical
+            hackathon organized by the <strong>Departments of CSE, AIML, and BCA</strong> at{" "}
+            <strong>OmDayal Group of Institutions</strong>, scheduled on{" "}
+            <strong>22nd–23rd May 2026</strong> at the college campus.
           </p>
 
           <p>
-            The hackathon encourages participants to ideate, design, and develop
-            creative solutions within a limited time frame, promoting teamwork,
-            critical thinking, and technical excellence.
+            The hackathon focuses on applications of <strong>AI, ML, Deep Learning</strong>,
+            and <strong>Smart Technologies</strong>, while also welcoming innovative
+            solutions across all emerging domains.
           </p>
 
           <p>
-            The event will be conducted inside the{" "}
-            <strong>college campus</strong> and is open to students with a passion
-            for technology and innovation.
+            The main event requires <strong>mandatory pre-registration</strong> and offers
+            a platform for teams to design and develop impactful, real-world solutions
+            within a limited time frame.
+          </p>
+
+          <p>
+            In addition, exciting parallel events such as{" "}
+            <strong>Coding Contest</strong>, <strong>Technical Quiz</strong>,{" "}
+            <strong>Technical Puzzle</strong>, and{" "}
+            <strong>E-Football Tournament</strong> will be conducted with{" "}
+            <strong>on-spot registration</strong>.
+          </p>
+
+          <p>
+            <strong>OMTECH 2026</strong> aims to foster innovation, technical excellence,
+            and collaborative learning among aspiring technologists.
           </p>
         </div>
 
@@ -63,23 +75,49 @@ export default function About() {
               Team & Registration Guidelines
             </h3>
 
-            <ul className="space-y-3 text-gray-300 text-x leading-relaxed">
-              <li>👥 Each team must consist of <strong>3 to 5 members</strong>.</li>
+            <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
 
               <li>
-                🧑‍💼 Every team must have a{" "}
-                <strong>Team Leader</strong>.
+                👥 Each team can have a maximum of <strong>5 members</strong>.
               </li>
 
               <li>
-                📝 Only the <strong>Team Leader</strong> needs to complete
-                registration.
+                🧑‍🤝‍🧑 Every team must have a <strong>team name</strong> and a{" "}
+                <strong>team leader</strong>.
+              </li>
+
+              <li>
+                🧑‍💼 The <strong>team leader</strong> is responsible for completing the
+                registration process.
+              </li>
+
+              <li>
+                🎓 Participation is open to{" "}
+                <strong>
+                  Diploma (CS/IT/Commerce), UG (B.Sc/CS), MSc, B.Tech (CSE/IT/ECE/EE),
+                  and PG (M.Tech/CSE/ECE/IT/EE)
+                </strong>.
+              </li>
+
+              <li>
+                📂 All teams must upload a <strong>PPT</strong> and a{" "}
+                <strong>College Authorization Letter</strong> (signed by HOI).
               </li>
 
               <li>
                 💰 Registration fee:{" "}
                 <strong className="text-white">₹300 per team</strong>.
               </li>
+
+              <li>
+                📜 To receive an <strong>E-Certificate</strong>, teams must complete
+                registration and participate in <strong>Round 1</strong>.
+              </li>
+
+              <li>
+                🚫 One participant can be part of <strong>only one team</strong>.
+              </li>
+
             </ul>
           </div>
         </WobbleCard>

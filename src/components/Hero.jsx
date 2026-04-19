@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import BackgroundLines from "./AnimatedBackground"
 import iicLogo from "../assets/iic-logo.png"
 import qrLogo from "../assets/qr.png"
+import IEEE from "../assets/IEEE.png"
 import CountdownTimer from "./CountdownTimer"
 import heroBg from "../assets/omdayal.png"
 
@@ -10,141 +11,118 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen w-full overflow-hidden flex items-center justify-center"
+      className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center px-4 py-16"
     >
-      {/* ===== Animated Background Image =====*/}
-       <motion.div
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1.15, opacity: 1 }}
-        transition={{
-          duration: 6,
-          ease: "easeOut",
-        }}
+      {/* ===== Background ===== */}
+      <motion.div
+        initial={{ scale: 1.05, opacity: 0 }}
+        animate={{ scale: 1.1, opacity: 1 }}
+        transition={{ duration: 6, ease: "easeOut" }}
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      {/* Slow floating loop */}
-      <motion.div
-        animate={{
-          scale: [1.15, 1.1, 1.15],
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      /> 
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/75" />
 
-
-      {/* ===== Dark Overlay ===== */}
-      <div className="absolute inset-0 bg-black/70" />
-
-      {/* ===== Animated Lighting ===== */}
-    <BackgroundLines />  
+      {/* Background lines (keep light) */}
+      <BackgroundLines />
 
       {/* ===== Content ===== */}
-      <div className="relative z-20 flex flex-col items-center text-center px-4">
+      <div className="relative z-20 flex flex-col items-center text-center w-full max-w-5xl mx-auto">
+
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-neutral-200 text-sm md:text-base uppercase font-medium"
+          className="text-neutral-300 text-xs sm:text-sm md:text-base uppercase font-medium"
         >
           A Hackathon Program
         </motion.p>
 
         {/* Title */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-6xl md:text-9xl font-bold tracking-tighter
-                     bg-clip-text text-transparent
-                     bg-linear-to-b from-white via-neutral-200 to-neutral-400"
+          className="
+        mt-2 font-bold tracking-tight
+        text-4xl sm:text-6xl md:text-8xl
+        bg-clip-text text-transparent
+        bg-gradient-to-b from-white via-neutral-200 to-neutral-400
+      "
         >
           Om<span className="text-green-400">Tech</span>
         </motion.h1>
 
         {/* Organizer */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col items-center gap-1 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mt-3"
         >
-          <p className="text-neutral-500 text-sm md:text-lg">
+          <p className="text-neutral-400 text-xs sm:text-sm md:text-lg">
             Presented by
           </p>
-          <p className="text-white text-lg md:text-2xl font-semibold tracking-wide">
+          <p className="text-white text-sm sm:text-lg md:text-2xl font-semibold">
             Omdayal Group of Institutions
           </p>
         </motion.div>
 
         {/* Countdown */}
-        <CountdownTimer targetDate="2026-03-05T09:00:00" />
+        <div className="mt-6">
+          <CountdownTimer targetDate="2026-05-07T10:30:00" />
+        </div>
 
-        {/* Partner Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-10 flex gap-6 p-4 rounded-2xl
-                     bg-white/5 backdrop-blur-sm
-                     border border-white/10"
+        {/* Deadline */}
+        <motion.p
+          className="text-sm sm:text-base md:text-lg text-red-400 font-medium"
         >
-          {/* IIC */}
-          <div className="relative group">
-            <div className="absolute -inset-0.5 rounded-full blur
-                            bg-linear-to-r from-green-500 to-blue-500
-                            opacity-20 group-hover:opacity-50 transition" />
-            <img
-              src={iicLogo}
-              alt="IIC Logo"
-              className="relative w-16 h-16 md:w-20 md:h-20
-                         rounded-full object-contain
-                         bg-black/50 p-2"
-            />
-          </div>
+          Last date of registration:{" "}
+          <motion.span
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="text-red-700 font-bold inline-block"
+          >
+            5th May
+          </motion.span>
+        </motion.p>
 
-          {/* QR */}
-          <div className="relative group">
-            <div className="absolute -inset-0.5 rounded-full blur
-                            bg-linear-to-r from-purple-500 to-pink-500
-                            opacity-20 group-hover:opacity-50 transition" />
-            <img
-              src={qrLogo}
-              alt="QR Code"
-              className="relative w-16 h-16 md:w-20 md:h-20
-                         rounded-full object-contain
-                         bg-black/50 p-2"
-            />
-          </div>
+        {/* Logos */}
+        <motion.div
+          className="
+        mt-8 flex flex-wrap justify-center gap-4 sm:gap-6
+        p-3 sm:p-4 rounded-xl
+        bg-white/5 backdrop-blur-sm border border-white/10
+      "
+        >
+          {[iicLogo, qrLogo, IEEE].map((img, i) => (
+            <div key={i} className="relative group">
+              <div className="absolute -inset-0.5 rounded-full blur opacity-20 bg-gradient-to-r from-green-400 to-blue-500" />
+              <img
+                src={img}
+                className="
+              relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
+              rounded-full object-contain bg-black/50 p-2
+            "
+              />
+            </div>
+          ))}
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 1,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="absolute bottom-16 left-1/2 -translate-x-1/2
-                     flex flex-col items-center gap-2 text-neutral-500"
-        >
-          <span className="text-xs uppercase tracking-widest">
-            Scroll
-          </span>
-          <div className="w-px h-12 bg-linear-to-b from-neutral-500 to-transparent" />
-        </motion.div>
       </div>
+
+      {/* Scroll Indicator (hide on small devices) */}
+      <motion.div
+        className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center text-neutral-500"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <div className="w-px h-10 bg-gradient-to-b from-neutral-500 to-transparent" />
+      </motion.div>
+
     </section>
   )
 }

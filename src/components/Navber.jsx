@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react"
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
-import { IoMdMenu } from "react-icons/io"
-import { IoClose } from "react-icons/io5"
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import logo from "../assets/logo.png"
 import CustomButtonOne from "./CustomButtonOne"
 
@@ -44,18 +42,10 @@ export default function Navbar() {
         className="mx-auto hidden items-center justify-between rounded-full px-6 py-3 lg:flex bg-black"
       >
         {/* Logo */}
-        <a
-          href="#hero"
-          className="flex items-center gap-2 cursor-pointer"
-        >
-          <img
-            src={logo}
-            alt="OmTech Logo"
-            className="h-10 w-10 rounded-full"
-          />
+        <a href="#hero" className="flex items-center gap-2 cursor-pointer">
+          <img src={logo} alt="OmTech Logo" className="h-10 w-10 rounded-full" />
           <span className="font-semibold text-white">OmTech</span>
         </a>
-
 
         {/* Links */}
         <div className="flex gap-6 text-sm">
@@ -63,25 +53,29 @@ export default function Navbar() {
             <a
               key={i}
               href={item.link}
-              className="text-gray-300 hover:text-primary transition cursor-pointer hover:underline"
+              className="text-gray-300 hover:text-green-400 transition cursor-pointer hover:underline hover:scale-110"
             >
               {item.name}
             </a>
           ))}
         </div>
 
-        {/* Registration Button */}
+        {/* Button */}
         <CustomButtonOne text="Register Now" />
       </motion.div>
 
       {/* ================= Mobile Navbar ================= */}
       <div className="lg:hidden">
+
+        {/* Top Bar */}
         <motion.div
           animate={{
             backdropFilter: visible ? "blur(10px)" : "none",
-            boxShadow: visible ? "0 10px 40px rgba(0,0,0,0.25)" : "none",
+            boxShadow: visible
+              ? "0 10px 40px rgba(0,0,0,0.25)"
+              : "none",
           }}
-          className="flex items-center justify-between rounded-xl bg-black/80 px-4 py-3"
+          className="flex items-center justify-between px-4 py-3 bg-black/80 rounded-xl"
         >
           {/* Logo */}
           <a
@@ -97,50 +91,64 @@ export default function Navbar() {
             <span className="font-semibold text-white">OmTech</span>
           </a>
 
-
-          {/* Menu Toggle */}
-          {open ? (
-            <IoClose
-              className="text-2xl cursor-pointer"
-              onClick={() => setOpen(false)}
+          {/* Animated Hamburger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="relative w-8 h-8 flex items-center justify-center z-[90]"
+          >
+            <span
+              className={`absolute w-6 h-[2px] bg-white transition-all duration-300 ${
+                open ? "rotate-45" : "-translate-y-2"
+              }`}
             />
-          ) : (
-            <IoMdMenu
-              className="text-2xl cursor-pointer mr-1"
-              onClick={() => setOpen(true)}
+            <span
+              className={`absolute w-6 h-[2px] bg-white transition-all duration-300 ${
+                open ? "opacity-0" : "opacity-100"
+              }`}
             />
-          )}
+            <span
+              className={`absolute w-6 h-[2px] bg-white transition-all duration-300 ${
+                open ? "-rotate-45" : "translate-y-2"
+              }`}
+            />
+          </button>
         </motion.div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="mt-2 rounded-xl bg-black px-6 py-6 space-y-5"
+        {/* ================= Full Screen Menu ================= */}
+        <div
+          className={`fixed top-16 left-0 w-full h-[calc(100vh-4rem)] z-40 
+          bg-black/95 backdrop-blur-lg
+          flex flex-col items-center justify-center gap-8
+          transition-all duration-300
+          ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
+        >
+          {navItems.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.link}
+              onClick={() => setOpen(false)}
+              className="text-3xl font-bold text-gray-200 hover:text-green-400 transition transform hover:scale-120"
             >
-              {navItems.map((item, i) => (
-                <a
-                  key={i}
-                  href={item.link}
-                  onClick={() => setOpen(false)}
-                  className="block text-gray-300 hover:text-primary transition"
-                >
-                  {item.name}
-                </a>
-              ))}
+              {item.name}
+            </a>
+          ))}
+git add src/components/Navber.jsx
+git rebase --continue
+          {/* CTA Button */}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfIE_wFn7svABJa7Zuu6lUiaPcoXNFS8Ry3gAucSJG2Qws3_Q/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 px-8 py-3 rounded-xl font-bold 
+            text-green-400 border border-green-400/50
+            shadow-[0_0_20px_rgba(34,197,94,0.5)]
+            hover:scale-110 hover:shadow-[0_0_35px_rgba(34,197,94,0.9)]
+            transition duration-300"
+          >
+            🚀 Register Now
+          </a>
+        </div>
 
-              
-              {/* Registration Button (mobile style consistent) */}
-              <div onClick={() => setOpen(false)}>
-                <CustomButtonOne text="Register Now" />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </motion.div>
   )

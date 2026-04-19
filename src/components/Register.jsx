@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import qrCode from "../assets/qr.png"
+import qrCode from "../assets/qr.jpg"
 import { FaRegClipboard } from "react-icons/fa"
 
 
@@ -47,7 +47,7 @@ export default function Register() {
       >
         {/* Registration Link */}
         <a
-          href="https://docs.google.com/forms/d/1kUjIB1PPkjuT_MtGf7YC23kIUJunyH7wRfMElaGqA6g/edit"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfIE_wFn7svABJa7Zuu6lUiaPcoXNFS8Ry3gAucSJG2Qws3_Q/viewform"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-primary px-8 py-3 rounded-lg font-semibold hover:scale-105 transition underline"
@@ -60,7 +60,7 @@ export default function Register() {
         {/* Payment QR Code */}
         <div className="mt-6 flex flex-col items-center">
           <p className="text-gray-400 mb-4 text-center">
-            Scan the QR code below to complete the registration payment
+            Scan the QR code below to complete the registration
           </p>
 
           <div className="bg-black border-2 border-dashed border-primary p-4 rounded-xl">
