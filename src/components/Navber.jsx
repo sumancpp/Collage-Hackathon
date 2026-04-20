@@ -132,8 +132,7 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
-git add src/components/Navber.jsx
-git rebase --continue
+
           {/* CTA Button */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSfIE_wFn7svABJa7Zuu6lUiaPcoXNFS8Ry3gAucSJG2Qws3_Q/viewform"
